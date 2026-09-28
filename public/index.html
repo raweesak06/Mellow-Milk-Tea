@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mellow Milk Tea — ละมุนทุกแก้ว หวานทุกวัน</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">🧋 Mellow Milk Tea</div>
+    <ul class="menu">
+      <li><a href="#hero">หน้าหลัก</a></li>
+      <li><a href="#products">เมนู</a></li>
+      <li><a href="#add-product-form">เพิ่มเมนู</a></li>
+      <li><a href="#contact">ติดต่อ</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>ละมุนทุกแก้ว<br>หวานทุกวัน 🧋</h1>
+      <p>
+        ชานมไข่มุกและเครื่องดื่มสุดละมุน
+        หอมชา นุ่มนม และเติมความสุขให้ทุกวันของคุณ
+      </p>
+      <a href="#products" class="btn">ดูเมนูของเรา</a>
+    </div>
+
+    <img
+      src="assets/ชานมไข่มุก.svg"
+      alt="Mellow Milk Tea"
+      class="hero-img">
+  </section>
+
+  <section class="add-form-section">
+    <h2 class="section-title">🎀 เพิ่มเมนูใหม่</h2>
+
+    <form id="add-product-form" class="add-form" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="product-name">ชื่อเมนู *</label>
+        <input
+          type="text"
+          id="product-name"
+          name="name"
+          required
+          placeholder="เช่น ชานมไข่มุก">
+      </div>
+
+      <div class="form-group">
+        <label for="product-producer">ชื่อร้าน/แบรนด์ *</label>
+        <input
+          type="text"
+          id="product-producer"
+          name="producer"
+          required
+          placeholder="เช่น Mellow Milk Tea">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="product-price">ราคา (บาท) *</label>
+          <input
+            type="number"
+            id="product-price"
+            name="price"
+            required
+            min="1"
+            placeholder="55">
+        </div>
+
+        <div class="form-group">
+          <label for="product-category">หมวดหมู่ *</label>
+          <select id="product-category" name="category" required>
+            <option value="">-- เลือกหมวดหมู่ --</option>
+            <option value="ชานม">🧋 ชานม</option>
+            <option value="ชา">🍵 ชา</option>
+            <option value="มัทฉะ">🍃 มัทฉะ</option>
+            <option value="โกโก้">🍫 โกโก้</option>
+            <option value="นมสด">🥛 นมสด</option>
+            <option value="โยเกิร์ต">🍓 โยเกิร์ต</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="product-contact">ช่องทางติดต่อ</label>
+        <input
+          type="text"
+          id="product-contact"
+          name="contact"
+          placeholder="เช่น LINE @mellowmilk">
+      </div>
+
+      <div class="form-group">
+      <label for="product-image">รูปภาพ (jpg, png, webp - ไม่เกิน 5MB)</label>
+      <input
+        type="file"
+        id="product-image"
+        name="=image"
+        accept="image/jpeg,image/png,image/webp">
+      </div>
+
+      <button type="submit" class="submit-btn">
+        🧋 เพิ่มเมนู
+      </button>
+
+    </form>
+  </section>
+
+  <section class="cards-section" id="products">
+    <h2 class="section-title">🧋 เมนูของเรา</h2>
+
+    <div class="card-grid" id="products-container">
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+
+      <div class="footer-col">
+        <h4>🧋 Mellow Milk Tea</h4>
+        <p>ละมุนทุกแก้ว หวานทุกวัน</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>ติดต่อเรา</h4>
+        <p>โทร 039-XXX-XXX</p>
+        <p>LINE: @mellowmilk</p>
+        <p>จังหวัดจันทบุรี</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>ติดตามเรา</h4>
+        <p>Facebook: Mellow Milk Tea</p>
+        <p>Instagram: @mellowmilk</p>
+        <p>TikTok: @mellowmilk</p>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © 2569 Mellow Milk Tea — Made with ♡
+    </p>
+  </footer>
+
+  <!-- Edit Modal -->
+<div id="edit-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>✏️ แก้ไขผลิตภัณฑ์</h2>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+
+    <form id="edit-form" class="edit-form">
+      <input type="hidden" id="edit-id">
+
+      <div class="form-group">
+        <label>ชื่อผลิตภัณฑ์ *</label>
+        <input type="text" id="edit-name" required>
+      </div>
+
+      <div class="form-group">
+        <label>ผู้ผลิต/กลุ่ม *</label>
+        <input type="text" id="edit-producer" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>ราคา *</label>
+          <input type="number" id="edit-price" required min="1">
+        </div>
+
+        <div class="form-group">
+          <label>หมวดหมู่ *</label>
+          <select id="edit-category" required>
+            <option value="">-- เลือกหมวดหมู่ --</option>
+            <option value="ชานม">🧋 ชานม</option>
+            <option value="ชา">🍵 ชา</option>
+            <option value="มัทฉะ">🍃 มัทฉะ</option>
+            <option value="โกโก้">🍫 โกโก้</option>
+            <option value="นมสด">🥛 นมสด</option>
+            <option value="โยเกิร์ต">🍓 โยเกิร์ต</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>เบอร์ติดต่อ</label>
+        <input type="tel" id="edit-contact">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="cancel-btn" id="cancel-btn">ยกเลิก</button>
+        <button type="submit" class="submit-btn">💾 บันทึก</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
